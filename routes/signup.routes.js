@@ -27,7 +27,7 @@ signUpRouter.use(express.urlencoded({ extended: true }));
 // signUpRouter.post('/', upload, async (req, res) => {
 signUpRouter.post('/', async (req, res) => {
     try {
-
+        console.log(req.body);
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
         const newStudent = new Student({
