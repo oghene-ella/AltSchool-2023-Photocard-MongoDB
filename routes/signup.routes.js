@@ -1,46 +1,24 @@
-require('dotenv').config();
 const express = require('express');
 const signUpRouter = express.Router();
 const Student = require('../models/students');
 const multer = require('multer');
 const path = require('path');
 const bcrypt = require('bcrypt');
-const mkdirp = require('mkdirp');
-const session = require('express-session'); 
-
-
-// // Upload Image
-// var storage = multer.diskStorage({
-//     destination: function(req, file, callback) {
-
-//         mkdirp('../uploads')
-//             .then(made => callback(null, path.join(__dirname, '../uploads')))
-//             .catch(error => callback(error));  
-//     },
-//     // destination: function(req, file, callback) {
-//     //     callback(null, './uploads');
-//     // },
-//     filename: function(req, file, callback) {
-//         callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
-//     },
-// });
+const session = require('express-session'); // Add express-session for session management
 
 // Upload Image
 var storage = multer.diskStorage({
     destination: function(req, file, callback) {
-        const destinationDir = path.join(__dirname, '../uploads');
-        mkdirp(destinationDir)
-            .then(() => callback(null, destinationDir))
-            .catch(error => callback(error));
+        callback(null, path.join(__dirname, '../uploads'));
     },
     filename: function(req, file, callback) {
         callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
     },
 });
 
-
-var upload = multer({ storage: storage })
-.single('image');
+var upload = multer({
+    storage: storage,
+}).single("image");
 
 // Add a New Student
 signUpRouter.post('/', upload, async (req, res) => {
