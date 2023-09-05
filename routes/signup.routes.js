@@ -20,6 +20,9 @@ const session = require('express-session'); // Add express-session for session m
 //     storage: storage,
 // }).single("image");
 
+// Body parsing middleware
+signUpRouter.use(express.urlencoded({ extended: true }));
+
 // Add a New Student
 // signUpRouter.post('/', upload, async (req, res) => {
 signUpRouter.post('/', async (req, res) => {
