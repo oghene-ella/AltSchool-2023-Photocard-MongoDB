@@ -59,6 +59,7 @@ signUpRouter.post('/', async (req, res) => {
 
     } catch (error) {
         res.json({ message: error.message, type: 'danger' })
+        res.json({ message: 'Error in catch' })
     }
 });
 
