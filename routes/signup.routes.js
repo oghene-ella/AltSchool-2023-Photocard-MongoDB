@@ -22,8 +22,9 @@ const bodyParser = require('body-parser');
 // }).single("image");
 
 // Body parsing middleware
-signUpRouter.use(express.urlencoded({ extended: true }));
 signUpRouter.use(bodyParser.json());
+signUpRouter.use(express.urlencoded({ extended: true }));
+
 
 // Add a New Student
 // signUpRouter.post('/', upload, async (req, res) => {
