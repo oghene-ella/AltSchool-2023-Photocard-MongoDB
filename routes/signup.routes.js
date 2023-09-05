@@ -6,22 +6,23 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const session = require('express-session'); // Add express-session for session management
 
-// Upload Image
-var storage = multer.diskStorage({
-    destination: function(req, file, callback) {
-        callback(null, path.join(__dirname, '../uploads'));
-    },
-    filename: function(req, file, callback) {
-        callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
-    },
-});
+// // Upload Image
+// var storage = multer.diskStorage({
+//     destination: function(req, file, callback) {
+//         callback(null, path.join(__dirname, '../uploads'));
+//     },
+//     filename: function(req, file, callback) {
+//         callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
+//     },
+// });
 
-var upload = multer({
-    storage: storage,
-}).single("image");
+// var upload = multer({
+//     storage: storage,
+// }).single("image");
 
 // Add a New Student
-signUpRouter.post('/', upload, async (req, res) => {
+// signUpRouter.post('/', upload, async (req, res) => {
+signUpRouter.post('/', async (req, res) => {
     try {
 
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -34,7 +35,7 @@ signUpRouter.post('/', upload, async (req, res) => {
             twitter: req.body.twitter,
             portfolio: req.body.portfolio,
             profileText: req.body.profileText,
-            image: req.file.filename,
+            // image: req.file.filename,
             email: req.body.email,
             password: hashedPassword
         });
