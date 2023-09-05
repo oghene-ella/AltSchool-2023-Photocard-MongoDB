@@ -30,7 +30,7 @@ signUpRouter.use(express.urlencoded({ extended: true }));
 // signUpRouter.post('/', upload, async (req, res) => {
 signUpRouter.post('/', async (req, res) => {
     try {
-        console.log(req.body);
+        console.log(`The error before is: ${req.body}`);
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
         const newStudent = new Student({
@@ -45,6 +45,8 @@ signUpRouter.post('/', async (req, res) => {
             email: req.body.email,
             password: hashedPassword
         });
+
+        console.log(`The error after is: ${req.body}`);
 
         await newStudent.save();
 
