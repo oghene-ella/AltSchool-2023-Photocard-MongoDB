@@ -7,12 +7,12 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const session = require('express-session'); // Add express-session for session management
 
-const uploadDirectory = process.env.uploadDirectory || '../uploads';
+// const uploadDirectory = process.env.uploadDirectory || '../uploads';
 
 // Upload Image
 var storage = multer.diskStorage({
     destination: function(req, file, callback) {
-        callback(null, uploadDirectory);
+        callback(null, './uploads');
     },
     filename: function(req, file, callback) {
         callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
