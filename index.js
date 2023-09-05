@@ -4,9 +4,12 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const routes = require('./routes/routes');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 54245;
+
+app.use(bodyParser.json());
 
 // Serve static files from the "public" directory
 app.use(express.static('public'));
