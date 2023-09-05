@@ -23,7 +23,7 @@ const bodyParser = require('body-parser');
 
 // Body parsing middleware
 signUpRouter.use(bodyParser.json());
-signUpRouter.use(express.urlencoded({ extended: true }));
+// signUpRouter.use(express.urlencoded({ extended: true }));
 
 
 // Add a New Student
