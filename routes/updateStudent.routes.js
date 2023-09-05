@@ -81,14 +81,14 @@ updateStudentRouter.post('/:id', upload,  async (req, res) => {
                 type: 'success',
                 message: `${student.name} Details Updated Successfully!`
             };
+            res.redirect('/dashboard');
         } else {
             req.session.message = {
                 type: 'info',
                 message: `No change was made to ${student.name}`
             };
+            res.redirect('/dashboard');
         }
-
-        res.redirect('/dashboard');
 
     } catch (error) {
         res.redirect('/')
