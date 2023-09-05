@@ -1,0 +1,64 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <div class="row">
+        <div class="mx-auto mt-4">
+            <div class="edit-container shadow">
+                <div class="card-header bg-dark">
+                    <h3 class="text-white text-center p-4">Edit <%= student.name %> Details</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/update_student/<%= student.id %>" method="post" id="add_user_form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="name" class="fw-bold mb-4">Full Name:</label>
+                            <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter Your Full Name" value="<%= student.name %>" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="stack" class="fw-bold mb-4">Stack:</label>
+                            <select name="stack" class="form-control form-control-lg" required>
+                                <option value="Backend Engineer" <%= student.stack === 'Backend Engineer' ? 'selected' : '' %>>Backend Engineer</option>
+                                <option value="Cloud Engineer" <%= student.stack === 'Cloud Engineer' ? 'selected' : '' %>>Cloud Engineer</option>
+                                <option value="Frontend Engineer" <%= student.stack === 'Frontend Engineer' ? 'selected' : '' %>>Frontend Engineer</option>
+                                <option value="Fullstack Engineer" <%= student.stack === 'Fullstack Engineer' ? 'selected' : '' %>>Fullstack Engineer</option>
+                            </select>
+                        </div>                        
+                        <div class="mb-3">
+                            <label for="github" class="fw-bold mb-4">Github URL:</label>
+                            <input type="text" name="github" class="form-control form-control-lg" placeholder="Enter Your GitHub URL" value="<%= student.github %>" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="linkedin" class="fw-bold mb-4">Linkedin URL:</label>
+                            <input type="text" name="linkedin" class="form-control form-control-lg" placeholder="Enter Your Linkedin URL" value="<%= student.linkedin %>" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="twitter" class="fw-bold mb-4">Twitter URL:</label>
+                            <input type="text" name="twitter" class="form-control form-control-lg" placeholder="Enter Your Twitter URL" value="<%= student.twitter %>" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="portfolio" class="fw-bold mb-4">Portfolio URL:</label>
+                            <input type="text" name="portfolio" class="form-control form-control-lg" placeholder="Enter Your Portfolio URL" value="<%= student.portfolio %>" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="fw-bold mb-4">Upload Photo</label>
+                            <input type="file" name="image" class="form-control form-control-lg" placeholder="Enter a phone number" />
+                            <img src="/<%= student.image %>" width="100" class="img-thumbnail mt-1">
+                            <input type="hidden" name="old_image" value="<%= student.image %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="profileText" class="fw-bold mb-4">Profile Text:</label>
+                            <textarea name="profileText" class="form-control form-control-lg" rows="4" placeholder="Enter Profile Text" required><%= student.profileText %></textarea>
+                        </div>
+                        <div class="mb-3 d-grid">
+                            <input type="submit" name="submit" value="Edit Student's Details" class="btn btn-primary btn-lg" />
+                        </div>
+                        <div class="mb-3 d-grid">
+                            <a class="btn btn-secondary btn-lg" href="/dashboard">Cancel</a>
+                        </div>
+                    </form>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

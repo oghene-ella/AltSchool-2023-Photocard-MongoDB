@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<div class="container edit-container">
+    <div class="row my-4">
+        <div class="col-lg-12">
+            <% if (message) { %>
+                <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <strong><%= message.message %></strong>
+                </div>
+            <% } %>
+
+            <!-- Display the information for the logged-in student -->
+            <div class="card border-primary my-4">
+                <div class="image-card-container mt-5">
+                    <div class="image-card border-primary mt-4">
+                        <img src="<%= student.image %>" class="card-img-top" alt="<%= student.name %>">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title text-center"><%= student.name %></h2>
+                    <p class="card-text text-center stack-text text-danger"><strong><%= student.stack %></strong></p>
+                    <div class="dashboard-social-container my-4">
+                        <a class="btn btn-outline-dark" href="<%= student.github %>" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a class="btn btn-outline-primary" href="<%= student.linkedin %>" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a class="btn btn-outline-info" href="<%= student.twitter %>" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                        <a class="btn btn-outline-secondary" href="<%= student.portfolio %>" target="_blank"><i class="fa-solid fa-globe"></i></a>
+                    </div>
+                    <div class="dashboard-short-text mt-3 text-center">
+                        <p><%= student.profileText %></p>
+                    </div>
+                </div>
+                <div class="card-footer text-center py-4">
+                    <!-- Add buttons for editing and deleting the logged-in student's details -->
+                    <a class="btn btn-primary mx-2" href="/edit_student/<%= student._id %>"><i class="fas fa-edit fa-md mx-1"></i>Edit</a>
+                    <a class="btn btn-danger mx-2" href="/delete_student/<%= student._id %>"><i class="fas fa-trash fa-md mx-1"></i>Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

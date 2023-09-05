@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-lg-12">
+            <% if (message) { %>
+                <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <strong><%= message.message %></strong>
+                </div>
+            <% } %>
+
+            <!-- About Section -->
+            <div class="container">
+                <div class="about-text-container text-center">
+                    <h1 class="about-title mb-4">AltSchool Class of 2023</h1>
+                    <p class="about-description">
+                        Welcome to the central repository of AltSchool Class of 2023 photo cards! Our project is dedicated to showcasing the exceptional talents and skills of our graduating students. Whether you're an employer seeking top talent or a fellow student looking to connect, you've come to the right place.
+                    </p>
+                    <p class="about-description">
+                        Each student in our Class of 2023 is represented by a photo card that includes details about their name, expertise, and links to their professional profiles. It's a one-stop hub for exploring the diverse talents within our class.
+                    </p>
+                    <p class="about-description">
+                        We believe in connecting bright minds with opportunities. Feel free to explore the profiles, connect with students, and discover the future leaders and innovators of AltSchool Class of 2023.
+                    </p>
+                </div>    
+                <div class="about-image-container">
+                    <img src="/img/altschool23-logo.png" alt="AltSchool Class of 2023" class="img-fluid about-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

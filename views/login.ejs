@@ -1,0 +1,44 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 mt-4">
+            <div class="card shadow">
+                <div class="card-body p-4">
+                    <% if (message) { %>
+                        <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <strong>Error:</strong> <%= message.message %>
+                        </div>
+                    <% } %>
+                    <form action="/dashboard" method="post">
+                        <div class="mb-3">
+                            <label for="email" class="fw-bold mb-2">Email:</label>
+                            <input type="text" name="email" class="form-control" placeholder="Email" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="fw-bold mb-2">Password:</label>
+                            <input type="password" name="password" class="form-control" placeholder="Password" required />
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary btn-lg w-100">Log In</button>
+                        </div>
+                        <div class="mb-3 d-grid">
+                            <a class="btn btn-secondary btn-lg" href="/">Cancel</a>
+                        </div>
+                        <div class="text-center">
+                            <a href="/forgot_password">Forgot Password?</a>
+                        </div>
+                        <hr />
+                        <div class="text-center">
+                            <p>Don't have an account?</p>
+                            <a class="btn btn-success btn-lg w-100" href="/signup">Sign Up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

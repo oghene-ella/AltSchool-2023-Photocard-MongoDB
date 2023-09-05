@@ -1,0 +1,52 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-lg-12">
+            <% if (message) { %>
+                <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <strong><%= message.message %></strong>
+                </div>
+            <% } %>
+            
+            <!-- Cards Section -->
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 card-container">
+                <% if (students !== '') { %>
+                    <% students.forEach((record, index) => { %>
+                        <div class="col mb-4">
+                            <div class="card border-primary  my-4">
+                                <div class="image-card-container">
+                                    <div class="image-card border-primary mt-4">
+                                        <img src="<%= record.image %>" class="card-img-top" alt="<%= record.name %>">
+                                    </div>    
+                                </div>
+                                <div class="card-body">
+                                    <h2 class="card-title text-center"><%= record.name %></h2>
+                                    <p class="card-text text-center stack-text text-danger"><strong><%= record.stack %></strong></p>
+                                    <div class="social-container">
+                                        <a class="btn btn-outline-dark" href="<%= record.github %>" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                        <a class="btn btn-outline-primary" href="<%= record.linkedin %>" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                                        <a class="btn btn-outline-info" href="<%= record.twitter %>" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                                        <a class="btn btn-outline-secondary" href="<%= record.portfolio %>" target="_blank"><i class="fa-solid fa-globe"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <p class="mb-3 profile-text short-text"><%= record.profileText %></p>
+                                    <a class="btn btn-success mb-2" href="/view_student/<%= record.id %>"><i class="fas fa-eye fa-md mx-1"></i>View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <div class="col">
+                        <h1 class="text-center text-secondary mt-5">No User Found in the Database</h1>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include('partials/footer') %>

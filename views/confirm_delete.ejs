@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header bg-danger">
+                    <h3 class="text-white text-center p-4">Confirm Deletion!!!</h3>
+                </div>
+                <div class="card-body p-4">
+                    <h4 class="text-center mb-4">Are you sure you want to delete <%= student.name %>'s details?</h4>
+
+                    <div class="mb-3">
+                        <p><strong>Full Name:</strong> <%= student.name %></p>
+                        <p><strong>Stack:</strong> <%= student.stack %></p>
+                        <p><strong>GitHub:</strong> <%= student.github %></p>
+                        <p><strong>Linkedin:</strong> <%= student.linkedin %></p>
+                        <p><strong>Twitter:</strong> <%= student.twitter %></p>
+                        <p><strong>Portfolio:</strong> <%= student.portfolio %></p>
+                        <p class="text-center"><img src="/<%= student.image %>" width="100" class="img-thumbnail mt-1"></p>
+                    </div>
+
+                    <form action="/delete_student/<%= student._id %>" method="post">
+                        <div class="mb-3 d-grid">
+                            <input type="submit" name="submit" value="Confirm Deletion" class="btn btn-danger btn-lg">
+                        </div>
+                        <div class="mb-3 d-grid">
+                            <a href="/dashboard" class="btn btn-secondary btn-lg">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

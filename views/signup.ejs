@@ -1,0 +1,71 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header bg-dark">
+                    <h3 class="text-white text-center p-4">Sign Up</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/signup" method="post" id="add_user_form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="name" class="fw-bold mb-4">Full Name:</label>
+                            <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter Your Full Name" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="stack" class="fw-bold mb-4">Stack:</label>
+                            <select name="stack" class="form-control form-control-lg" required>
+                                <option value="Backend Engineer">Backend Engineer</option>
+                                <option value="Cloud Engineer">Cloud Engineer</option>
+                                <option value="Frontend Engineer">Frontend Engineer</option>
+                                <option value="Fullstack Engineer">Fullstack Engineer</option>
+                            </select>
+                        </div>                        
+                        <div class="mb-3">
+                            <label for="github" class="fw-bold mb-4">Github URL:</label>
+                            <input type="text" name="github" class="form-control form-control-lg" placeholder="Enter Your Github URL" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="linkedin" class="fw-bold mb-4">Linkedin URL:</label>
+                            <input type="text" name="linkedin" class="form-control form-control-lg" placeholder="Enter Your Linkedin URL" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="twitter" class="fw-bold mb-4">Twitter URL:</label>
+                            <input type="text" name="twitter" class="form-control form-control-lg" placeholder="Enter Your Twitter URL" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="portfolio" class="fw-bold mb-4">Portfolio URL:</label>
+                            <input type="text" name="portfolio" class="form-control form-control-lg" placeholder="Enter Your Portfolio URL" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="fw-bold mb-4">Upload Photo</label>
+                            <input type="file" name="image" class="form-control form-control-lg" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="profileText" class="fw-bold mb-4">Profile Text:</label>
+                            <textarea name="profileText" class="form-control form-control-lg" rows="4" placeholder="Enter Profile Text" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="fw-bold mb-4">Email Address:</label>
+                            <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter Your Email Address" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="fw-bold mb-4">Enter Password:</label>
+                            <input type="password" name="password" class="form-control form-control-lg" placeholder="Enter Your Password" required />
+                        </div>
+
+                        <div class="mb-3 d-grid">
+                            <input type="submit" name="submit" value="Sign Up" class="btn btn-primary btn-lg" />
+                        </div>
+                        <div class="mb-3 d-grid">
+                            <a class="btn btn-secondary btn-lg" href="/">Cancel</a>
+                        </div>
+                    </form>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

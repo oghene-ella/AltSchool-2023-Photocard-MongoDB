@@ -1,0 +1,59 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container view-student-container">
+    <header class="header my-4 p-4">
+        <h3 class="text-center">Details for <%= student.name %></h3>
+    </header>
+
+    <div class="d-flex justify-content-center">
+        <div class="row container-image-card">
+
+            <!-- Image Container (Left Side) -->
+            <div class="col-lg-6 my-4">
+                <div class="image-container">
+                    <div class="image-card-container py-4">
+                        <div class="image-card border-primary">
+                            <img src="/<%= student.image %>" class="card-img-top" alt="<%= student.name %>">
+                        </div>    
+                    </div>
+                </div>    
+            </div>
+    
+            <!-- Card Container (Right Side) -->
+            <div class="col-lg-6 my-4">
+                <div class="student-card-container text-center p-4">
+                    <div class="card px-5 pt-4 pb-2">
+                        <h2 class="card-title text-center"><%= student.name %></h2>
+                        <p class="px-5 card-text text-center stack-text text-danger"><strong><%= student.stack %></strong></p>
+                        <p class="text-center web-link">
+                            <strong><em><a class="btn btn-outline-dark" href="<%= student.github %>" target="_blank"><i class="fa-brands fa-github"></i> <%= student.github %></a></em></strong>
+                        </p>
+                        <p class="text-center web-link">
+                            <strong><em><a class="btn btn-outline-primary" href="<%= student.linkedin %>" target="_blank"><i class="fa-brands fa-linkedin"></i> <%= student.linkedin %></a></em></strong>
+                        </p>
+                        <p class="text-center web-link">
+                            <strong><em><a class="btn btn-outline-info" href="<%= student.twitter %>" target="_blank"><i class="fa-brands fa-twitter"></i> <%= student.twitter %></a></em></strong>
+                        </p>
+                        <p class="text-center web-link">
+                            <em><a class="btn btn-outline-secondary" href="<%= student.portfolio %>" target="_blank"><i class="fa-solid fa-globe"></i> <%= student.portfolio %></a></em>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>    
+
+    </div>
+
+
+    <div class="profile-details">
+        <header class="profile-details-header text-center mt-5 mb-4">
+            <h3>About <%= student.name %></h3>
+        </header>
+        <div class="profile-details-content text-center">
+            <p><%= student.profileText %></p>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
