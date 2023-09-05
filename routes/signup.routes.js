@@ -23,8 +23,7 @@ const bodyParser = require('body-parser');
 
 // Body parsing middleware
 signUpRouter.use(express.json());
-signUpRouter.use(bodyParser.json());
-// signUpRouter.use(express.urlencoded({ extended: true }));
+signUpRouter.use(express.urlencoded({ extended: true }));
 
 
 // Add a New Student
@@ -32,7 +31,7 @@ signUpRouter.use(bodyParser.json());
 signUpRouter.post('/', async (req, res) => {
     try {
         console.log(`The error before is: ${req.body}`);
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        // const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
         const newStudent = new Student({
             name: req.body.name,
@@ -44,7 +43,7 @@ signUpRouter.post('/', async (req, res) => {
             profileText: req.body.profileText,
             // image: req.file.filename,
             email: req.body.email,
-            password: hashedPassword
+            // password: hashedPassword
         });
 
         console.log(`The error after is: ${req.body}`);
