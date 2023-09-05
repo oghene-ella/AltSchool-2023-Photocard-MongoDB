@@ -4,7 +4,7 @@ const Student = require('../models/students');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
-const session = require('express-session'); // Add express-session for session management
+const session = require('express-session');
 
 // Upload Image
 var storage = multer.diskStorage({
@@ -31,28 +31,17 @@ updateStudentRouter.post('/:id', upload,  async (req, res) => {
 
         if (req.file) {
             new_image = req.file.filename;
-            const oldImagePath = path.join(__dirname, '../uploads/' + req.body.old_image);
-
-            if (fs.existsSync(oldImagePath)) {
-                try{
-                    fs.unlinkSync(oldImagePath);
-                } catch (error) {
-                    console.log('Error deleting file:', error.message)
-                }
-            } else {
-                console.log('File does not exist:', oldImagePath)
-            }
         
-            // try {
-                
-            //     fs.unlinkSync(oldImagePath);
-            // } catch (error) {
-            //     if (error.code === 'ENOENT') {
-            //         console.log('File does not exist:', error.message);
-            //     } else {
-            //         console.error('Error deleting file:', error.message);
-            //     }
-            // }
+            try {
+                const oldImagePath = path.join(__dirname, '../uploads/' + req.body.old_image);
+                fs.unlinkSync(oldImagePath);
+            } catch (error) {
+                if (error.code === 'ENOENT') {
+                    console.log('File does not exist:', error.message);
+                } else {
+                    console.error('Error deleting file:', error.message);
+                }
+            }
         }
         
         const updatedDetails = {

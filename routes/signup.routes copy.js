@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const signUpRouter = express.Router();
 const Student = require('../models/students');
@@ -7,12 +6,10 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const session = require('express-session'); // Add express-session for session management
 
-const uploadDirectory = process.env.uploadDirectory || '../uploads';
-
 // Upload Image
 var storage = multer.diskStorage({
     destination: function(req, file, callback) {
-        callback(null, uploadDirectory);
+        callback(null, path.join(__dirname, '../uploads'));
     },
     filename: function(req, file, callback) {
         callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
