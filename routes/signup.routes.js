@@ -5,19 +5,39 @@ const Student = require('../models/students');
 const multer = require('multer');
 const path = require('path');
 const bcrypt = require('bcrypt');
-const session = require('express-session'); // Add express-session for session management
+const mkdirp = require('mkdirp');
+const session = require('express-session'); 
 
-// const uploadDirectory = process.env.uploadDirectory || '../uploads';
+
+// // Upload Image
+// var storage = multer.diskStorage({
+//     destination: function(req, file, callback) {
+
+//         mkdirp('../uploads')
+//             .then(made => callback(null, path.join(__dirname, '../uploads')))
+//             .catch(error => callback(error));  
+//     },
+//     // destination: function(req, file, callback) {
+//     //     callback(null, './uploads');
+//     // },
+//     filename: function(req, file, callback) {
+//         callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
+//     },
+// });
 
 // Upload Image
 var storage = multer.diskStorage({
     destination: function(req, file, callback) {
-        callback(null, './uploads');
+        const destinationDir = path.join(__dirname, '../uploads');
+        mkdirp(destinationDir)
+            .then(() => callback(null, destinationDir))
+            .catch(error => callback(error));
     },
     filename: function(req, file, callback) {
         callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
     },
 });
+
 
 var upload = multer({ storage: storage })
 .single('image');
