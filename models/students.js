@@ -28,7 +28,7 @@ const studentSchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        required: false
+        required: true
     },
     profileText: {
         type: String, 
@@ -37,7 +37,7 @@ const studentSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true // Ensure email addresses are unique
+        unique: true
     },
     password: {
         type: String,

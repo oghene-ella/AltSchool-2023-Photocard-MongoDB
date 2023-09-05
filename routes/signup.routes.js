@@ -4,33 +4,26 @@ const Student = require('../models/students');
 const multer = require('multer');
 const path = require('path');
 const bcrypt = require('bcrypt');
-const session = require('express-session');
-const bodyParser = require('body-parser');
+const session = require('express-session'); // Add express-session for session management
 
-// // Upload Image
-// var storage = multer.diskStorage({
-//     destination: function(req, file, callback) {
-//         callback(null, path.join(__dirname, '../uploads'));
-//     },
-//     filename: function(req, file, callback) {
-//         callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
-//     },
-// });
+// Upload Image
+var storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+        callback(null, path.join(__dirname, '../uploads'));
+    },
+    filename: function(req, file, callback) {
+        callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname)
+    },
+});
 
-// var upload = multer({
-//     storage: storage,
-// }).single("image");
-
-// Body parsing middleware
-signUpRouter.use(express.json());
-signUpRouter.use(express.urlencoded({ extended: true }));
-
+var upload = multer({
+    storage: storage,
+}).single("image");
 
 // Add a New Student
-// signUpRouter.post('/', upload, async (req, res) => {
-signUpRouter.post('/', async (req, res) => {
+signUpRouter.post('/', upload, async (req, res) => {
     try {
-        console.log(`The error before is: ${req.body}`);
+
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
         const newStudent = new Student({
@@ -41,13 +34,10 @@ signUpRouter.post('/', async (req, res) => {
             twitter: req.body.twitter,
             portfolio: req.body.portfolio,
             profileText: req.body.profileText,
-            // image: req.file.filename,
+            image: req.file.filename,
             email: req.body.email,
             password: hashedPassword
-            // password: req.body.password
         });
-
-        console.log(`The error after is: ${req.body}`);
 
         await newStudent.save();
 
@@ -59,7 +49,6 @@ signUpRouter.post('/', async (req, res) => {
 
     } catch (error) {
         res.json({ message: error.message, type: 'danger' })
-        res.json({ message: 'Error in catch' })
     }
 });
 

@@ -90,9 +90,18 @@ nav a {
   font-size: 1.05rem;
 }
 
+.web-link a.btn-all {
+  padding: 0.25rem 0.5rem;
+}
+
 .stack-text {
   font-size: 1.25rem;
   color: #383434;
+}
+
+.photocard {
+  padding: 1rem 1rem;
+  border: 1px solid var(--bs-primary);
 }
 
 .student-card-container {
