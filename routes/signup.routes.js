@@ -4,7 +4,8 @@ const Student = require('../models/students');
 const multer = require('multer');
 const path = require('path');
 const bcrypt = require('bcrypt');
-const session = require('express-session'); // Add express-session for session management
+const session = require('express-session');
+const bodyParser = require('body-parser');
 
 // // Upload Image
 // var storage = multer.diskStorage({
@@ -22,6 +23,7 @@ const session = require('express-session'); // Add express-session for session m
 
 // Body parsing middleware
 signUpRouter.use(express.urlencoded({ extended: true }));
+signUpRouter.use(bodyParser.json());
 
 // Add a New Student
 // signUpRouter.post('/', upload, async (req, res) => {
