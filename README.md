@@ -1,6 +1,6 @@
 # ALTSCHOOL CLASS 2023 STUDENT PHOTOCARD
 
-![AltSchool Logo](https://github.com/Otavie/github_images/blob/main/altschool-2023-bg.jpg)
+![AltSchool Logo](https://github.com/Otavie/github_images/blob/main/altschool-2023-bg-1.jpg)
 
 AltSchool 2023 Student Photocard Collection is a web application for managing student profiles, including their personal information, skills, and social media links. It allows students to sign up, log in, and edit their profiles while providing administrators the ability to manage student data efficiently.
 
