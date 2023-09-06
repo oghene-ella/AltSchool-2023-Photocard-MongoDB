@@ -11,7 +11,7 @@ AltSchool 2023 Student Photocard Collection is a web application for managing st
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Areas for Improvement/Limitations](#areas-for-improvement-limitations)
+- [Areas for Improvement and Limitations](#areas-for-improvement-and-limitations)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -99,7 +99,7 @@ Follow these instructions to set up the project on your local machine.
 
 6. Do your `git add`, `git commit`, and `git push` to raise your PR.
 
-## Areas for Improvement/Limitations
+## Areas for Improvement and Limitations
 
 - **Image Management**: Currently, image upload and editing functionality is not available. This limitation is due to the read-only nature of the filesystem in certain serverless environments, including AWS Lambda, which is commonly used by serverless platforms like Cyclic (where the project is hosted).
 
