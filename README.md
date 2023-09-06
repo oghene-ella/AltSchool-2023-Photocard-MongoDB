@@ -11,6 +11,7 @@ AltSchool 2023 Student Photocard Collection is a web application for managing st
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
+- [Areas for Improvement/Limitations](#areas-for-improvement-limitations)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -86,17 +87,25 @@ Follow these instructions to set up the project on your local machine.
 
 ## Usage
 
-1. Access the application in your web browser at `http://localhost:<Port Number>`.
+1. After running `npm start`, open the site using your localhost link (e.g., `http://localhost:3000`).
 
-2. Use the navigation links to explore the Home, Login, and About pages.
+2. Add your information/details by signing up as a student.
 
-3. Sign up as a student to create a profile with your details.
+3. Log in using your email and password.
 
-4. Log in using your email and password.
+4. Edit or delete your profile as needed.
 
-5. Edit or delete your profile as needed.
+5. Log out when you're done.
 
-6. Log out when you're done.
+6. Do your `git add`, `git commit`, and `git push` to raise your PR.
+
+## Areas for Improvement/Limitations
+
+- **Image Management**: Currently, image upload and editing functionality is not available. This limitation is due to the read-only nature of the filesystem in certain serverless environments, including AWS Lambda, which is commonly used by serverless platforms like Cyclic (where the project is hosted).
+
+- **Search Functionality**: The application lacks search functionality to enable searching by specific criteria.
+
+- **Pagination**: To improve user experience and performance, pagination functionality is needed to reduce the amount of profile cards displayed per page.
 
 ## Contributing
 
