@@ -32,7 +32,6 @@ AltSchool 2023 Student Photocard Collection is a web application for managing st
 - **Database**: MongoDB
 - **Frontend Library/Framework**:
   - Bootstrap 5
-  - jQuery
   - Font Awesome
 
 ## Packages/Modules Used
